@@ -27,8 +27,8 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/workout_db", {
 });
 
 // using html and api routes 
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 
 app.listen(PORT, () => {
