@@ -1,4 +1,4 @@
-const express = require("express");
+  const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
@@ -27,8 +27,8 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/workout_db", {
 });
 
 // using html and api routes 
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
+app.use(require("./routes/api-routes.js"));
+app.use(require("./routes/html-routes"));
 
 
 app.listen(PORT, () => {
