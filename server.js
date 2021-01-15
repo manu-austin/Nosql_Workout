@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 
 // connection to port or 3000
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 // variable creation for express
 const app = express();
@@ -31,6 +31,6 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 
-app.listen(PORT, () => {
-    console.log(`🌎 ==> API server now on port ${PORT}!`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`🌎 ==> API server now on port 3000!`);
 });
