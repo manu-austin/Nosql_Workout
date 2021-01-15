@@ -1,5 +1,7 @@
 const db = require("../models");
 
+// checking model console.log(db.Workout)
+
 module.exports = (app) => {
 
 // getting all the workouts 
@@ -14,7 +16,7 @@ app.get("/api/workouts", (req, res) => {
   });
 
 // creating a workout
-  app.post("/api/workouts", (req,res) => {
+  app.post("/api/workouts", (res) => {
     db.Workout.create({})
       .then((data) => {
           res.json(data);
