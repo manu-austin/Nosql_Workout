@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// checking model console.log(db.Workout)
+// checking model console.log(db.Workout) returns Model { workout } on terminal
 
 module.exports = (app) => {
 
@@ -16,14 +16,14 @@ app.get("/api/workouts", (req, res) => {
   });
 
 // creating a workout
-  app.post("/api/workouts", (res) => {
+  app.post("/api/workouts", (req, res) => {
     db.Workout.create({})
       .then((data) => {
           res.json(data);
       })
       .catch((err) => res.json(err));
 });
-  
+
   // finding one workout and update
   app.put("/api/workouts/:id", (req, res) => {
     db.Workout.findByIdAndUpdate(req.params.id,{$push:{exercises:req.body}})
@@ -38,7 +38,7 @@ app.get("/api/workouts", (req, res) => {
   
   // finding workouts
   app.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({})
+    db.Workout.find({}) // 
       .then(data => {
         res.json(data);
        
